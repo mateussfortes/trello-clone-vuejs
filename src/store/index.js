@@ -1,7 +1,9 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import defaultBoard from "@/default-board";
-import { saveStatePlugin } from "../utils";
+import { saveStatePlugin } from "@/utils";
+
+console.log(JSON.parse(localStorage.getItem('board')))
  
 Vue.use(Vuex);
 
@@ -12,7 +14,17 @@ export default new Vuex.Store({
   state: {
     board
   },
-  mutations: {},
-  actions: {},
-  modules: {}
+  getters: {
+    getTask(state) {
+      return (id) => {
+        for(const column of state.board.columns) {
+          for(const task of column.tasks) {
+            if(task.id === id) {
+              return task
+            }
+          }
+        }
+      }
+    }
+  }
 });
