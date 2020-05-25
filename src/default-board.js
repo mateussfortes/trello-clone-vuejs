@@ -10,7 +10,7 @@ export default {
                     id:  uuid(),
                     name: 'SEO',
                     userAssigned: null,
-                    description: ''
+                    description: 'Analise SEO'
                 },
                 {
                     id:  uuid(),
